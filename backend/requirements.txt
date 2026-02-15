@@ -16,3 +16,4 @@ pillow
 pinecone
 python-multipart
 pymupdf
+itsdangerous
