@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>HealthBot AI | Dashboard</title>
+  <link rel="stylesheet" href="css/home.css" />
+
+  <!-- ✅ Tips scroller CSS (kept minimal, no color changes) -->
+  <style>
+    .tips-bar{
+      width:100%;
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      overflow:hidden;
+      padding:10px 0;
+    }
+    .tips-track{
+      display:flex;
+      gap:40px;
+      white-space:nowrap;
+      padding-left:100%;
+      animation: tipsScroll 22s linear infinite;
+    }
+    .tips-track span{
+      font-weight:700;
+      opacity:.85;
+    }
+    @keyframes tipsScroll{
+      0%{ transform:translateX(0); }
+      100%{ transform:translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-left">
+      <div class="brand">
+        <div class="brand-icon">🤖</div>
+        <div class="brand-text">
+          <div class="brand-title">HealthBot AI</div>
+          <div class="brand-sub">Public Health Assistant</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side menu -->
+    <div class="nav-right">
+      <nav class="menu" id="topMenu">
+        <a href="symptom_checker.html" class="menu-link">Symptom Checker</a>
+        <a href="disease.html" class="menu-link">Disease Awareness</a>
+        <a href="quiz.html" class="menu-link">Quiz</a>
+
+        <a href="reports.html" class="menu-link">Reports & Analysis</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
+        <a href="feedback.html" class="menu-link">Feedback</a>
+      </nav>
+
+      <!-- Logged out -->
+      <div class="auth-actions" id="authActions">
+        <button class="btn-outline" id="btnSignIn">Sign In</button>
+        <button class="btn-primary small" id="btnSignUp">Sign Up</button>
+      </div>
+
+      <!-- Logged in profile -->
+      <div class="profile-wrap" id="profileWrap">
+        <button class="profile-btn" id="profileBtn" title="Profile">
+          <span class="avatar" id="avatar">👤</span>
+        </button>
+
+        <div class="dropdown" id="dropdown">
+          <div class="drop-head">
+            <div class="drop-avatar" id="dropAvatar">👤</div>
+            <div>
+              <div class="drop-name" id="dropName">User</div>
+              <div class="drop-email" id="dropEmail">user@email.com</div>
+            </div>
+          </div>
+          <div class="drop-line"></div>
+          <button class="drop-item" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Health Tips Scrolling Bar -->
+  <!-- Health Tips Scrolling -->
+  <div class="tips-bar">
+  <div class="tips-track">
+    <div class="tips-content">
+      💡 Health Tip: Drink enough water • Eat fruits & vegetables • Walk daily • Sleep 7–8 hours • Wash hands regularly • Consult doctor if symptoms persist •
+    </div>
+    <div class="tips-content">
+      💡 Health Tip: Drink enough water • Eat fruits & vegetables • Walk daily • Sleep 7–8 hours • Wash hands regularly • Consult doctor if symptoms persist •
+    </div>
+  </div>
+</div>
+
+
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>AI-Driven Public Health Chatbot<br/>for Disease Awareness</h1>
+        <p class="hero-sub">
+          Chat with our AI-powered health assistant to learn about symptoms,
+          prevention tips, and get reliable information on diseases.
+          Your trusted guide for public health education.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" id="startChatBtn">Start Chatting</button>
+
+          <!-- ✅ Replace this link later with your YouTube video -->
+          <a class="btn-ghost" id="watchDemoBtn"
+             href="https://www.youtube.com/"
+             target="_blank" rel="noreferrer">
+            ▶ Watch Demo
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-visual">
+          <img class="bot-img" src="./assets/doctor.jpg" alt="Health bot" />
+
+          <!-- floating icons -->
+          <div class="float-card f1">💬</div>
+          <div class="float-card f2">🧬</div>
+          <div class="float-card f3">🩺</div>
+          <div class="float-card f4">✅</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE CARD ROW -->
+    <section class="feature-strip" id="symptom">
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <div class="feature-title">Symptom Checker</div>
+        <div class="feature-text">
+          Chat to learn symptoms and understand possible causes.
+        </div>
+        <a class="feature-link" href="symptom_checker.html">Open</a>
+      </div>
+
+      <div class="feature-card" id="disease">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Disease Prevention Tips</div>
+        <div class="feature-text">
+          Prevent diseases through reminders and awareness tips.
+        </div>
+        <a class="feature-link" href="disease.html">Open</a>
+      </div>
+
+      <div class="feature-card" id="reports">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Reliable Information</div>
+        <div class="feature-text">
+          Trusted information with clear guidance and prevention.
+        </div>
+        <a class="feature-link" href="reports.html">Open</a>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how">
+      <h2>How It Works</h2>
+      <p class="how-sub">Easy steps to guide you through your health concerns.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num one">1</div>
+          <div class="step-title">Ask Your Question</div>
+          <div class="step-text">Start by asking about symptoms or diseases.</div>
+          <a class="mini-link2" href="chatbot.html">Learn More</a>
+        </div>
+        <div class="step">
+          <div class="step-num two">2</div>
+          <div class="step-title">Get Instant Answers</div>
+          <div class="step-text">Receive fast responses with health guidance.</div>
+          <a class="mini-link2" href="chatbot.html">Learn More</a>
+        </div>
+        <div class="step">
+          <div class="step-num three">3</div>
+          <div class="step-title">Stay Informed</div>
+          <div class="step-text">Get prevention tips and reliable advice.</div>
+          <a class="mini-link2" href="reports.html">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta-box">
+        <div>
+          <h3>Start Chatting with HealthBot AI Today!</h3>
+          <p>Get instant answers, reliable health information, and stay updated on disease prevention.</p>
+        </div>
+        <button class="btn-primary" id="ctaChatBtn">Start Chatting</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <div class="brand-icon small">🤖</div>
+          <div>
+            <div class="footer-title">HealthBot AI</div>
+            <div class="footer-text">Your AI public health assistant for awareness and prevention.</div>
+          </div>
+        </div>
+        <div class="social-row">
+          <span class="soc">🌐</span>
+          <span class="soc">🐦</span>
+          <span class="soc">📘</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">HealthBot AI</div>
+        <a class="footer-link" href="#symptom">Features</a>
+        <a class="footer-link" href="#disease">How It Works</a>
+        <a class="footer-link" href="quiz.html">Quiz</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Support</div>
+        <a class="footer-link" href="faq.html">Help Center</a>
+        <a class="footer-link" href="#">Privacy Policy</a>
+        <a class="footer-link" href="#">Terms</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Contact</div>
+        <div class="footer-text">support@healthbot.ai</div>
+        <div class="footer-text">Andhra Pradesh, India</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 HealthBot AI. All rights reserved.
+    </div>
+  </footer>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

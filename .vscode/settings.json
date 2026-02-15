@@ -1,0 +1,18 @@
+{
+  "liveServer.settings.fullReload": false,
+  "liveServer.settings.wait": 2000,
+  "liveServer.settings.ignoreFiles": [
+    "**/.git/**",
+    "**/.vscode/**",
+    "**/.venv/**",
+    "**/__pycache__/**",
+    "**/*.py",
+    "**/*.db",
+    "**/*.sqlite",
+    "**/*.sqlite3",
+    "**/uploads/**",
+    "**/vectorstores/**",
+    "**/backend/**",
+    "**/app/**"
+  ]
+}

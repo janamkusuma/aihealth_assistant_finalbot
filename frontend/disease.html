@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Diseases Library</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="btn" href="index.html">← Back</a>
+    <h2>Diseases Library</h2>
+    <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+  </header>
+
+  <main class="container">
+    <div class="filters">
+      <input id="search" placeholder="Search diseases..." />
+      <select id="category">
+        <option value="All">All Categories</option>
+        <option value="Infectious Diseases">Infectious Diseases</option>
+        <option value="Respiratory Diseases">Respiratory Diseases</option>
+        <option value="Digestive Diseases">Digestive Diseases</option>
+        <option value="Chronic Diseases">Chronic Diseases</option>
+      </select>
+    </div>
+
+    <div id="grouped"></div>
+  </main>
+
+  <script type="module" src="js/disease.js"></script>
+</body>
+</html>

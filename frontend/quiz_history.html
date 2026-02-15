@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Quiz History</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="btn" href="quiz.html">← Back</a>
+    <h2>Quiz History</h2>
+    <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+  </header>
+
+  <main class="container">
+    <div class="panel">
+      <h2 style="margin:0 0 12px;">Your Quiz History</h2>
+
+      <div class="table-wrap">
+        <table class="tbl" id="tbl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Score</th>
+              <th>Total</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <p id="empty" style="display:none;color:#555;margin-top:12px;">No history found.</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/quiz_history.js"></script>
+</body>
+</html>

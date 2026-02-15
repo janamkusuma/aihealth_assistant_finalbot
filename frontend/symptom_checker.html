@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Symptom Checker</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+</head>
+<body>
+  <header class="topbar">
+    <a class="btn" href="index.html">← Back</a>
+    <h2>Symptom Checker</h2>
+    <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+  </header>
+
+  <main class="container">
+    <div class="panel">
+      <h3>Select Your Symptoms</h3>
+      <div id="chips" class="chips"></div>
+      <button class="btn primary" id="analyzeBtn" type="button">Analyze Symptoms</button>
+    </div>
+
+    <div id="loading" class="panel" style="display:none;margin-top:14px;">
+      <p>Analyzing your symptoms... please wait</p>
+    </div>
+
+    <div id="out" style="margin-top:14px;"></div>
+  </main>
+
+  <script type="module" src="js/symptom_checker.js"></script>
+</body>
+</html>

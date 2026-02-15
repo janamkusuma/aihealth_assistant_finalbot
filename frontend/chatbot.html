@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>HealthBot AI | Chat</title>
+  <link rel="stylesheet" href="css/chatbot.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <!-- LEFT: Sidebar -->
+    <aside class="sidebar">
+      <div class="side-top">
+        <div class="side-brand">
+          <div class="logo">🤖</div>
+          <div>
+            <div class="brand-title">HealthBot AI</div>
+            <div class="brand-sub">Chat History</div>
+          </div>
+        </div>
+
+        <button class="newchat" id="newChatBtn" type="button">+ New Chat</button>
+      </div>
+
+      <div class="chatlist" id="chatList"></div>
+    </aside>
+
+    <!-- RIGHT: Chat -->
+    <main class="main">
+      <header class="topbar">
+        <a class="back" href="index.html">← Home</a>
+
+        <div class="top-actions">
+          <!-- ✅ ONLY ONE SELECT (no nesting) -->
+          <select id="lang" class="lang">
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="kn">Kannada</option>
+            <option value="ml">Malayalam</option>
+            <option value="mr">Marathi</option>
+            <option value="bn">Bengali</option>
+            <option value="gu">Gujarati</option>
+            <option value="ur">Urdu</option>
+          </select>
+
+          <!-- ✅ Sound toggle -->
+          <button class="iconbtn" id="soundBtn" type="button" title="Bot Voice On/Off">🔊</button>
+
+          <button class="logout" id="logout" type="button">Logout</button>
+        </div>
+      </header>
+
+      <section class="messages" id="messages"></section>
+
+      <form class="composer" id="composerForm">
+        <input
+          type="file"
+          id="fileInput"
+          hidden
+          multiple
+          accept=".pdf,.txt,.md,.png,.jpg,.jpeg"
+        />
+
+        <button type="button" class="iconbtn" id="uploadBtn">＋</button>
+        <button type="button" class="iconbtn" id="micBtn">🎤</button>
+
+        <textarea
+          class="text"
+          id="textInput"
+          placeholder="Type your question..."
+          rows="1"
+        ></textarea>
+
+        <button type="submit" class="send" id="sendBtn">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="js/chatbot.js"></script>
+</body>
+</html>

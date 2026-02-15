@@ -1,0 +1,167 @@
+# backend/app/api/disease_data.py
+
+DISEASES = [
+    # ---------------- Infectious ----------------
+    {
+        "id": 1,
+        "name": "Influenza (Flu)",
+        "category": "Infectious Diseases",
+        "image": "https://images.unsplash.com/photo-1706201763911-3ca332534efd?q=80&w=1048&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "info": "Flu is a viral infection affecting nose, throat, and lungs. It spreads through droplets.",
+        "key_symptoms": ["fever", "cough", "body pain", "fatigue"],
+        "symptoms": ["fever", "cough", "sore throat", "body pain", "fatigue", "headache"],
+        "precautions": ["Rest", "Wear a mask if coughing", "Avoid close contact"],
+        "prevention": ["Flu vaccination", "Handwashing", "Cover cough/sneeze"],
+        "medicines": [
+            {"name": "Paracetamol", "purpose": "Fever / body pain", "dosage": "500mg every 6–8 hrs (max 3g/day)"},
+            {"name": "Oseltamivir", "purpose": "Antiviral", "dosage": "75mg twice daily (doctor advice)"},
+        ],
+    },
+    {
+        "id": 2,
+        "name": "Dengue",
+        "category": "Infectious Diseases",
+        "image": "https://images.unsplash.com/photo-1707943768453-7850f916ebde?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "info": "Dengue is a mosquito-borne viral infection. Some cases can become severe.",
+        "key_symptoms": ["fever", "headache", "body pain", "nausea"],
+        "symptoms": ["fever", "headache", "body pain", "nausea", "vomiting", "rash"],
+        "precautions": ["Avoid mosquito bites", "Rest", "Drink fluids"],
+        "prevention": ["Remove stagnant water", "Use mosquito nets", "Wear full sleeves"],
+        "medicines": [
+            {"name": "Paracetamol", "purpose": "Fever", "dosage": "500mg every 6–8 hrs (max 3g/day)"},
+            {"name": "Avoid Ibuprofen/Aspirin", "purpose": "Bleeding risk", "dosage": "Avoid unless doctor says"},
+        ],
+    },
+    {
+        "id": 3,
+        "name": "COVID-19",
+        "category": "Infectious Diseases",
+        "image": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "info": "COVID-19 is a viral respiratory disease. Symptoms vary from mild to severe.",
+        "key_symptoms": ["fever", "cough", "fatigue"],
+        "symptoms": ["fever", "cough", "fatigue", "headache", "body pain"],
+        "precautions": ["Isolate if sick", "Wear a mask", "Stay hydrated"],
+        "prevention": ["Vaccination", "Hand hygiene", "Avoid crowded places"],
+        "medicines": [
+            {"name": "Paracetamol", "purpose": "Fever / body pain", "dosage": "500mg every 6–8 hrs (max 3g/day)"},
+        ],
+    },
+    {
+        "id": 4,
+        "name": "Malaria",
+        "category": "Infectious Diseases",
+        "image": "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=800&q=80",
+        "info": "Malaria is caused by parasites transmitted by mosquitoes. Fever may come in cycles.",
+        "key_symptoms": ["fever", "headache", "vomiting", "fatigue"],
+        "symptoms": ["fever", "headache", "vomiting", "fatigue", "body pain"],
+        "precautions": ["See doctor early", "Rest", "Hydrate"],
+        "prevention": ["Mosquito nets", "Repellent", "Avoid stagnant water"],
+        "medicines": [
+            {"name": "Antimalarials", "purpose": "Treatment", "dosage": "Doctor prescription only"},
+        ],
+    },
+
+    # ---------------- Respiratory ----------------
+    {
+        "id": 10,
+        "name": "Bronchitis",
+        "category": "Respiratory Diseases",
+        "image": "https://images.unsplash.com/photo-1743767587847-08c42b31cdec?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb25jaGl0aXN8ZW58MHx8MHx8fDA%3D",
+        "info": "Bronchitis is inflammation of bronchial tubes causing cough and mucus.",
+        "key_symptoms": ["cough", "fever", "fatigue"],
+        "symptoms": ["cough", "fever", "fatigue", "body pain"],
+        "precautions": ["Avoid smoke", "Warm fluids", "Rest"],
+        "prevention": ["Avoid smoking", "Hand hygiene", "Vaccines (as advised)"],
+        "medicines": [
+            {"name": "Cough syrup", "purpose": "Symptom relief", "dosage": "As per label / doctor advice"},
+        ],
+    },
+    {
+        "id": 11,
+        "name": "Pneumonia",
+        "category": "Respiratory Diseases",
+        "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
+        "info": "Pneumonia is lung infection that can cause fever, cough, and breathing difficulty.",
+        "key_symptoms": ["fever", "cough", "fatigue"],
+        "symptoms": ["fever", "cough", "fatigue", "body pain"],
+        "precautions": ["See doctor if breathing issue", "Rest", "Hydration"],
+        "prevention": ["Vaccines", "Hand hygiene", "Avoid sick contacts"],
+        "medicines": [
+            {"name": "Antibiotics", "purpose": "Treatment (if bacterial)", "dosage": "Doctor prescription only"},
+        ],
+    },
+    {
+        "id": 12,
+        "name": "Sinusitis",
+        "category": "Respiratory Diseases",
+        "image": "https://plus.unsplash.com/premium_photo-1723107465475-257ff24d7280?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8U2ludXNpdGlzfGVufDB8fDB8fHww",
+        "info": "Sinusitis is inflammation of sinuses causing headache, facial pain, and congestion.",
+        "key_symptoms": ["headache", "cold"],
+        "symptoms": ["headache", "cold", "fatigue"],
+        "precautions": ["Steam inhalation", "Warm fluids", "Rest"],
+        "prevention": ["Treat allergies", "Avoid smoke", "Hand hygiene"],
+        "medicines": [
+            {"name": "Saline spray", "purpose": "Nasal relief", "dosage": "2–3 sprays/day (as needed)"},
+        ],
+    },
+
+    # ---------------- Digestive ----------------
+    {
+        "id": 20,
+        "name": "Food Poisoning",
+        "category": "Digestive Diseases",
+        "image": "https://media.istockphoto.com/id/1014317284/photo/bacteria-and-germs-on-vegetables.jpg?s=612x612&w=0&k=20&c=SR68wWRjcTtFU6iLCP-LcG4BtFyFq_QXuX0mWYdaleA=",
+        "info": "Food poisoning can cause nausea, vomiting, diarrhea, and cramps after contaminated food.",
+        "key_symptoms": ["nausea", "vomiting", "fever"],
+        "symptoms": ["nausea", "vomiting", "fever", "fatigue"],
+        "precautions": ["Oral rehydration", "Rest", "Avoid oily foods"],
+        "prevention": ["Clean food/water", "Cook properly", "Handwash"],
+        "medicines": [
+            {"name": "ORS", "purpose": "Rehydration", "dosage": "Small sips often (after each loose stool)"},
+        ],
+    },
+    {
+        "id": 21,
+        "name": "Gastritis",
+        "category": "Digestive Diseases",
+        "image": "https://eremedium.in/wp-content/uploads/2024/05/Symptoms-of-Gastritis.jpg",
+        "info": "Gastritis is irritation of stomach lining; may cause nausea and discomfort.",
+        "key_symptoms": ["nausea", "vomiting"],
+        "symptoms": ["nausea", "vomiting", "fatigue"],
+        "precautions": ["Small meals", "Avoid spicy food", "Hydrate"],
+        "prevention": ["Avoid excess painkillers", "Healthy diet", "Stress control"],
+        "medicines": [
+            {"name": "Antacid", "purpose": "Acidity relief", "dosage": "After meals (as per label)"},
+        ],
+    },
+
+    # ---------------- Chronic ----------------
+    {
+        "id": 30,
+        "name": "Hypertension",
+        "category": "Chronic Diseases",
+        "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+        "info": "Hypertension is persistently high blood pressure. Often no symptoms.",
+        "key_symptoms": ["headache", "dizziness"],
+        "symptoms": ["headache", "dizziness", "fatigue"],
+        "precautions": ["Reduce salt", "Exercise", "Manage stress"],
+        "prevention": ["Healthy diet", "Maintain weight", "Regular BP checks"],
+        "medicines": [
+            {"name": "Amlodipine", "purpose": "BP control", "dosage": "5mg once daily (doctor advice)"},
+        ],
+    },
+    {
+        "id": 31,
+        "name": "Diabetes",
+        "category": "Chronic Diseases",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYsM-vY0qtl3aC67oaG7IpuF8JPmzo4hWzJQ&s",
+        "info": "Diabetes affects blood sugar control. Symptoms may include tiredness (not always).",
+        "key_symptoms": ["fatigue", "dizziness"],
+        "symptoms": ["fatigue", "dizziness"],
+        "precautions": ["Healthy diet", "Exercise", "Monitor sugar"],
+        "prevention": ["Weight control", "Balanced diet", "Regular checkups"],
+        "medicines": [
+            {"name": "Metformin", "purpose": "Sugar control", "dosage": "500mg once/twice daily (doctor advice)"},
+        ],
+    },
+]

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Login | AI Health Assistant</title>
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <div class="auth-card">
+    <div class="left">
+      <div class="logo">
+        <div class="icon">🤖</div>
+        <div>
+          <h1>AI Health Assistant</h1>
+          <p>Your personal AI-powered health assistant for smarter insights and better wellness.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="dot">🔎</div>
+        <div>
+          <h3>Medical Insights</h3>
+          <span>Receive personalized health insights and analysis.</span>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="dot">🛡️</div>
+        <div>
+          <h3>Disease Prevention</h3>
+          <span>Get tips to prevent illnesses and improve well-being.</span>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="dot">👥</div>
+        <div>
+          <h3>Community Health</h3>
+          <span>Join health communities for support and advice.</span>
+        </div>
+      </div>
+
+      <div class="footer">🔒 Secure & HIPAA compliant</div>
+    </div>
+
+    <div class="right">
+      <h2>Welcome Back</h2>
+      <div class="sub">Sign in to continue</div>
+
+      <div class="field">
+        <label>Email</label>
+        <input class="input" id="email" type="email" placeholder="youremail.com" />
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+
+        <div class="pw-wrap">
+          <input class="input" id="password" type="password" placeholder="••••••••" />
+          <button class="pw-eye" type="button" id="toggleLoginPw" aria-label="Toggle password">
+            👁️
+          </button>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <a class="link" href="#" onclick="alert('Add forgot password later')">Forgot password?</a>
+      </div>
+
+      <button class="btn" onclick="login()">Sign In</button>
+
+      <div class="divider">or continue with</div>
+
+      <!-- ✅ Only Google, centered -->
+      <div class="social single">
+        <button class="sbtn" onclick="googleLogin()">🟢 Continue with Google</button>
+      </div>
+
+      <div class="err" id="err"></div>
+
+      <div class="bottom">
+        Don’t have an account? <a class="link" href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

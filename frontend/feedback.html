@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Feedback</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="btn" href="index.html">← Back</a>
+    <h2>Feedback</h2>
+    <a class="btn" href="faq.html">FAQ</a>
+  </header>
+
+  <main class="container">
+    <div class="panel">
+      <h2 style="margin:0 0 12px;">Send Feedback</h2>
+
+      <div class="filters">
+        <select id="rating">
+          <option value="">Select Rating</option>
+          <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+          <option value="4">⭐⭐⭐⭐ (4)</option>
+          <option value="3">⭐⭐⭐ (3)</option>
+          <option value="2">⭐⭐ (2)</option>
+          <option value="1">⭐ (1)</option>
+        </select>
+
+        <select id="category">
+          <option value="general">General</option>
+          <option value="chatbot">Chatbot</option>
+          <option value="symptom_checker">Symptom Checker</option>
+          <option value="disease_page">Disease Awareness</option>
+          <option value="quiz">Quiz</option>
+          <option value="reports">Reports</option>
+        </select>
+      </div>
+
+      <textarea id="message" rows="5" placeholder="Write your feedback..."
+        style="width:100%;padding:12px;border-radius:10px;border:1px solid #cfe2ff;resize:vertical;"></textarea>
+
+      <button class="btn primary" id="sendBtn" type="button">Submit Feedback</button>
+
+      <p id="msg" style="margin-top:12px;color:#333;"></p>
+    </div>
+
+    <div class="panel" style="margin-top:16px;">
+      <h2 style="margin:0 0 12px;">My Feedback</h2>
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Rating</th>
+              <th>Category</th>
+              <th>Message</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" style="display:none;color:#555;margin-top:12px;">No feedback found.</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/feedback.js"></script>
+</body>
+</html>
