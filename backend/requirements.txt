@@ -11,7 +11,7 @@ email-validator
 #faiss-cpu
 httpx
 pdfplumber
-easyocr
+#easyocr
 pillow
 pinecone
 python-multipart
