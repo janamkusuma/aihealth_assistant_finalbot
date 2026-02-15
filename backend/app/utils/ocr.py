@@ -1,11 +1,21 @@
-import easyocr
+#import easyocr
+try:
+    import easyocr
+except Exception:
+    easyocr = None
+
 import cv2
 
 # load reader once
-_reader = easyocr.Reader(['en'], gpu=False)
+_reader = easyocr.Reader(['en'], gpu=False) if easyocr else None
+
 
 
 def extract_text_from_image(path: str) -> str:
+    if _reader is None:
+        print("OCR disabled on deployment")
+        return ""
+
     try:
         # read image
         img = cv2.imread(path)
