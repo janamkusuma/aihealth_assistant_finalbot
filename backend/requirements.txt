@@ -19,3 +19,6 @@ pymupdf
 itsdangerous
 authlib
 joblib
+numpy
+pandas
+scikit-learn
