@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://ai-health-backend-4e0i.onrender.com";
 
 // ✅ If google callback sends token in URL, store and go home
 (function handleGoogleToken() {
