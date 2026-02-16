@@ -1,6 +1,7 @@
 # app/auth.py
+import bcrypt
 
-from passlib.context import CryptContext
+#from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
 from fastapi import HTTPException, Depends
@@ -11,19 +12,19 @@ from app.config import settings
 from app.database import get_db
 from app.models import User
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+#pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 
-def hash_password(password: str):
-    # bcrypt limit safety
-    if len(password.encode("utf-8")) > 72:
-        password = password[:72]
-    return pwd_context.hash(password)
+def hash_password(password: str) -> str:
+    pw = password.encode("utf-8")
+    if len(pw) > 72:
+        pw = pw[:72]
+    return bcrypt.hashpw(pw, bcrypt.gensalt()).decode("utf-8")
 
+def verify_password(plain: str, hashed: str) -> bool:
+    return bcrypt.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
 
-def verify_password(plain: str, hashed: str):
-    return pwd_context.verify(plain, hashed)
 
 
 def create_access_token(payload: dict):
