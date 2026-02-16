@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from authlib.integrations.starlette_client import OAuth, OAuthError
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.database import get_db
 from app.models import User
@@ -32,10 +33,17 @@ def signup(user: UserCreate, db: Session = Depends(get_db)):
         email=user.email,
         password=hash_password(user.password),
     )
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+    try:
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
+    except SQLAlchemyError as e:
+        db.rollback()
+        print("DB ERROR:", str(e))
+        raise HTTPException(status_code=500, detail="Database error during signup")
+
     return new_user
+
 
 
 # -----------------------
@@ -110,6 +118,7 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
     )
 
     return RedirectResponse(
-        f"{settings.FRONTEND_BASE_URL}/frontend/oauth-success.html?token={jwt_token}",
+        f"{settings.FRONTEND_BASE_URL}/oauth-success.html?token={jwt_token}",
+
         status_code=302,
     )

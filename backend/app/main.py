@@ -34,6 +34,7 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "http://localhost:5500",
+        "https://aihealth-assistant-finalbot.vercel.app",
         settings.FRONTEND_BASE_URL,
     ],
     allow_credentials=True,
